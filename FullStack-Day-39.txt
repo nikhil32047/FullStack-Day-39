@@ -1,0 +1,67 @@
+Day 39:
+=========
+
+a) Abstract Methods
+=========================
+An abstract method is a method declared but not implemented in a class.
+It must be overridden by child classes.
+Defined using the @abstractmethod decorator from the abc module.
+
+Example:
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+Key Points:
+No method body
+Forces child classes to implement logic
+
+
+b) Abstract Classes
+=========================
+An abstract class is a class that cannot be instantiated and may contain abstract and non-abstract methods.
+
+Example:
+class Circle(Shape):
+    def area(self):
+        return 3.14 * 5 * 5
+
+Key Points:
+Blueprint for subclasses
+Improves design consistency
+
+
+c) Interfaces (Pythonic Approach)
+=======================================
+Python doesn’t have a separate interface keyword.
+Interfaces are implemented using abstract classes with only abstract methods.
+
+Example:
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+Key Points:
+Enforces method implementation
+Supports multiple inheritance
+
+
+d) Concrete Classes
+=========================
+A concrete class implements all abstract methods and can be instantiated.
+
+Example:
+class Bike(Vehicle):
+    def start(self):
+        print("Bike started")
+
+b = Bike()
+b.start()
+
+Key Points:
+Complete implementation.
+Objects can be created.
